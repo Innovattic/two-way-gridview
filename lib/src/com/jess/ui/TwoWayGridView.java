@@ -36,6 +36,7 @@
 package com.jess.ui;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Rect;
@@ -274,6 +275,7 @@ public class TwoWayGridView extends TwoWayAbsListView {
 
 
 	@Override
+	@SuppressLint("WrongCall")
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 		if ((mScrollVertically && !(mGridBuilder instanceof VerticalGridBuilder))
