@@ -1459,7 +1459,8 @@ public class TwoWayGridView extends TwoWayAbsListView {
 					// Stretch the columns
 					spaceLeftOver = availableSpace - (mNumColumns * requestedColumnWidth) -
 					((mNumColumns - 1) * requestedHorizontalSpacing);
-					mColumnWidth = requestedColumnWidth + spaceLeftOver / mNumColumns;
+					mColumnWidth = requestedColumnWidth +
+						(spaceLeftOver + mNumColumns - 1) / mNumColumns;
 					mHorizontalSpacing = requestedHorizontalSpacing;
 					break;
 
@@ -2955,7 +2956,8 @@ public class TwoWayGridView extends TwoWayAbsListView {
 					spaceLeftOver = availableSpace - (mNumRows * requestedRowHeight) -
 					((mNumRows - 1) * requestedVerticalSpacing);
 					// Stretch the rows
-					mRowHeight = requestedRowHeight + spaceLeftOver / mNumRows;
+					mRowHeight = requestedRowHeight +
+						(spaceLeftOver + mNumRows - 1) / mNumRows;
 					mVerticalSpacing = requestedVerticalSpacing;
 					break;
 
