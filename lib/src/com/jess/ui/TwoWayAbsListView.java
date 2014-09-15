@@ -51,6 +51,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.HapticFeedbackConstants;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -60,7 +61,6 @@ import android.view.ViewConfiguration;
 import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.Adapter;
 import android.widget.EditText;
 import android.widget.ListAdapter;
@@ -1811,6 +1811,11 @@ ViewTreeObserver.OnTouchModeChangeListener {
                 treeObserver.removeGlobalOnLayoutListener(this);
                 mGlobalLayoutListenerAddedFilter = false;
             }*/
+		}
+		
+		if (mAdapter != null && mDataSetObserver != null) {
+	    	mAdapter.unregisterDataSetObserver(mDataSetObserver);
+	        mDataSetObserver = null;
 		}
 	}
 
